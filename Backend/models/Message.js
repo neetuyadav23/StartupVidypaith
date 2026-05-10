@@ -1,0 +1,11 @@
+// models/Message.js
+const mongoose = require('mongoose');
+
+const MessageSchema = new mongoose.Schema({
+  community: { type: mongoose.Schema.Types.ObjectId, ref: 'Community', required: true },
+  sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  text: { type: String, required: true, trim: true },
+  senderName: { type: String }
+}, { timestamps: true });
+
+module.exports = mongoose.model('Message', MessageSchema);

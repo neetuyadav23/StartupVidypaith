@@ -1,0 +1,128 @@
+[
+  {
+    "id": "65a1b2c3d4e5f67890123456",
+    "name": "EcoTech Solutions",
+    "description": "ujuj",
+    "industry": "Social Impact, Technology Startups",
+    "hiring": false,
+    "looking_for": "Development Partner",
+    "text": "ujuj social impact technology startups development partner"
+  },
+  {
+    "id": "695d1b5e1a551bb597231611",
+    "name": "Hool",
+    "description": "nnn",
+    "industry": "Education Tech",
+    "hiring": false,
+    "looking_for": "Business Co-Founder",
+    "text": "nnn education tech business co-founder"
+  },
+  {
+    "id": "695ea16264d95f1588e3cc46",
+    "name": "Hawaii",
+    "description": "I sell grocery ",
+    "industry": "Social Impact, Education Tech, Healthcare",
+    "hiring": false,
+    "looking_for": "Team Member, Intern",
+    "text": "i sell grocery  social impact education tech healthcare team member intern advisor/mentor"
+  },
+  {
+    "id": "695eb9a237dfb16d0c7e7f8d",
+    "name": "Kloo",
+    "description": "mnm",
+    "industry": "Social Impact",
+    "hiring": false,
+    "looking_for": "Team Member",
+    "text": "mnm social impact team member"
+  },
+  {
+    "id": "695fa612cb22078876c0af53",
+    "name": "Amira",
+    "description": "marketing business",
+    "industry": "Social Impact, Technology Startups, Healthcare",
+    "hiring": false,
+    "looking_for": "Business Co-Founder, Team Member",
+    "text": "marketing business social impact technology startups healthcare e-commerce business co-founder team member intern"
+  },
+  {
+    "id": "696b4d4d8f8c5e80de8a817f",
+    "name": "Startup Vid",
+    "description": "heyy",
+    "industry": "Technology Startups",
+    "hiring": false,
+    "looking_for": "Technical Co-Founder",
+    "text": "heyy technology startups technical co-founder"
+  },
+  {
+    "id": "696b9ed1d4426b764c691cd9",
+    "name": "Hamara",
+    "description": "good",
+    "industry": "Social Impact",
+    "hiring": false,
+    "looking_for": "Team Member",
+    "text": "good social impact team member"
+  },
+  {
+    "id": "696ba398f1b5cfedbac46dad",
+    "name": "Geeta",
+    "description": "good person",
+    "industry": "Social Impact, Education Tech",
+    "hiring": false,
+    "looking_for": "Team Member, Business Co-Founder",
+    "text": "good person social impact education tech team member business co-founder"
+  },
+  {
+    "id": "696bbf233d73f4a04d9b36b1",
+    "name": "name",
+    "description": "hwyy",
+    "industry": "Technology Startups",
+    "hiring": false,
+    "looking_for": "Technical Co-Founder",
+    "text": "hwyy technology startups technical co-founder"
+  },
+  {
+    "id": "696bded83f1eadb7f48844f2",
+    "name": "Amla",
+    "description": "Monkey is king.",
+    "industry": "Social Impact, Education Tech, Healthcare",
+    "hiring": false,
+    "looking_for": "Business Co-Founder",
+    "text": "monkey is king. social impact education tech healthcare business co-founder"
+  },
+  {
+    "id": "696be7f83f1eadb7f4884628",
+    "name": "Halou",
+    "description": "Hi , I am good",
+    "industry": "Social Impact",
+    "hiring": false,
+    "looking_for": "Team Member",
+    "text": "hi , i am good social impact team member"
+  },
+  {
+    "id": "696bed0167bad193cca042ed",
+    "name": "Premium",
+    "description": "hi",
+    "industry": "Social Impact, Education Tech",
+    "hiring": false,
+    "looking_for": "Team Member",
+    "text": "hi social impact education tech team member"
+  },
+  {
+    "id": "696cda96820f7f05172605db",
+    "name": "Healthcare",
+    "description": "hihh",
+    "industry": "Social Impact, Education Tech",
+    "hiring": true,
+    "looking_for": "Business Co-Founder, Team Member",
+    "text": "hihh social impact education tech business co-founder team member"
+  },
+  {
+    "id": "69931c48795bd2961425c673",
+    "name": "hamar",
+    "description": "hello",
+    "industry": "Education Tech, Social Impact",
+    "hiring": false,
+    "looking_for": "Team Member, Business Co-Founder",
+    "text": "hello education tech social impact team member business co-founder"
+  }
+]

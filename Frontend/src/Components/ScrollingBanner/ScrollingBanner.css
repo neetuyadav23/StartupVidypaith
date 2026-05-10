@@ -1,0 +1,227 @@
+.scrolling-banner-section {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 26, 26, 0.98) 100%);
+  color: white;
+  padding: 1rem 0; /* Reduced from 2rem to 1rem */
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px); /* Slightly reduced blur */
+  border-top: 1px solid rgba(255, 107, 53, 0.1);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+  height: 60px; /* Fixed height for consistency */
+  display: flex;
+  align-items: center;
+}
+
+/* Gradient overlays for fade effect on edges */
+.scrolling-banner-section::before,
+.scrolling-banner-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60px; /* Reduced from 100px */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scrolling-banner-section::before {
+  left: 0;
+  background: linear-gradient(to right, 
+    rgba(10, 10, 10, 1) 0%, 
+    rgba(10, 10, 10, 0) 100%);
+}
+
+.scrolling-banner-section::after {
+  right: 0;
+  background: linear-gradient(to left, 
+    rgba(10, 10, 10, 1) 0%, 
+    rgba(10, 10, 10, 0) 100%);
+}
+
+.scrolling-banner-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.scrolling-content {
+  display: flex;
+  width: fit-content;
+  animation: scroll 35s linear infinite; /* Slightly faster */
+  white-space: nowrap;
+  padding: 0; /* Removed vertical padding */
+  align-items: center;
+}
+
+.scrolling-banner-container.paused .scrolling-content {
+  animation-play-state: paused;
+}
+
+.scrolling-item {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem; /* Reduced from 3rem */
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.scrolling-item:hover {
+  transform: translateY(-1px); /* Reduced hover effect */
+}
+
+.scrolling-text {
+  font-size: 1.1rem; /* Reduced from 1.4rem */
+  font-weight: 600;
+  color: transparent;
+  background: linear-gradient(90deg, #ffffff 0%, #ff8c42 50%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding: 0.25rem 0; /* Reduced from 0.5rem */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-shadow: 0 1px 6px rgba(255, 107, 53, 0.15); /* Reduced shadow */
+}
+
+.scrolling-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px; /* Thinner underline */
+  background: linear-gradient(90deg, transparent, #ff6b35, transparent);
+  transition: width 0.3s ease;
+}
+
+.scrolling-item:hover .scrolling-text::after {
+  width: 100%;
+}
+
+.scrolling-divider {
+  margin-left: 2rem; /* Reduced from 3rem */
+  color: rgba(255, 107, 53, 0.4);
+  font-size: 1.2rem; /* Reduced from 1.8rem */
+  font-weight: 200;
+  position: relative;
+  width: 3px;
+  height: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.scrolling-divider::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 107, 53, 0.4);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* Enhanced animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.3); /* Reduced from 1.5 */
+    opacity: 0.8;
+  }
+}
+
+/* Reduced glow effect */
+.scrolling-banner-container:hover {
+  box-shadow: inset 0 0 30px rgba(255, 107, 53, 0.03); /* Reduced glow */
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .scrolling-banner-section {
+    height: 55px;
+    padding: 0.8rem 0;
+  }
+  
+  .scrolling-text {
+    font-size: 1rem; /* Adjusted */
+  }
+  
+  .scrolling-item {
+    padding: 0 1.5rem; /* Reduced */
+  }
+  
+  .scrolling-banner-section::before,
+  .scrolling-banner-section::after {
+    width: 40px; /* Reduced */
+  }
+  
+  .scrolling-divider {
+    margin-left: 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrolling-banner-section {
+    height: 50px;
+    padding: 0.7rem 0;
+  }
+  
+  .scrolling-text {
+    font-size: 0.9rem;
+  }
+  
+  .scrolling-item {
+    padding: 0 1.25rem;
+  }
+  
+  .scrolling-divider {
+    margin-left: 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .scrolling-banner-section::before,
+  .scrolling-banner-section::after {
+    width: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrolling-banner-section {
+    height: 45px;
+    padding: 0.6rem 0;
+  }
+  
+  .scrolling-text {
+    font-size: 0.85rem;
+    padding: 0.15rem 0;
+  }
+  
+  .scrolling-item {
+    padding: 0 1rem;
+  }
+  
+  .scrolling-divider {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+  }
+}

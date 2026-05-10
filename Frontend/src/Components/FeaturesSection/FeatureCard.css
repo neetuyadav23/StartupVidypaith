@@ -1,0 +1,282 @@
+/* FeatureCard.css - Beautiful & Stable */
+.feature-card {
+  position: relative;
+  text-align: center;
+  padding: 40px 25px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #ffffff 0%, #fcfcfc 100%);
+  box-shadow: 
+    0 20px 40px rgba(255, 107, 53, 0.08),
+    0 8px 20px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  overflow: hidden;
+  height: 100%; /* Ensure equal height */
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 107, 53, 0.1);
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 30px 60px rgba(255, 107, 53, 0.15),
+    0 15px 35px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: var(--card-color);
+}
+
+/* Image Container */
+.feature-image-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(255, 107, 53, 0.1),
+    inset 0 4px 12px rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+}
+
+.feature-card:hover .feature-image-container {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.15),
+    0 10px 30px rgba(255, 107, 53, 0.2),
+    inset 0 4px 12px rgba(255, 255, 255, 0.9);
+}
+
+/* Image Glow Effect */
+.image-glow {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--card-color) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.feature-card:hover .image-glow {
+  opacity: 0.2;
+}
+
+/* Image */
+.feature-image {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover .feature-image {
+  transform: scale(1.1);
+}
+
+/* Fallback for missing images */
+.feature-image-fallback {
+  font-size: 3rem;
+  color: var(--card-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide fallback when image loads */
+.feature-image:not([style*="display: none"]) ~ .feature-image-fallback {
+  display: none;
+}
+
+/* Title */
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  line-height: 1.3;
+}
+
+.feature-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--card-color);
+  border-radius: 2px;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.feature-card:hover .feature-title::after {
+  width: 70px;
+  background: linear-gradient(90deg, var(--card-color), rgba(255, 107, 53, 0.8));
+}
+
+/* Description */
+.feature-description {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+  max-width: 260px;
+  margin: 0 auto;
+  font-weight: 400;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 107, 53, 0.08);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-card:hover .feature-description {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 107, 53, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.08);
+}
+
+/* Corner Decorations */
+.card-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 107, 53, 0.15);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.card-corner.top-left {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid var(--card-color);
+  border-left: 2px solid var(--card-color);
+  border-top-left-radius: 6px;
+}
+
+.card-corner.top-right {
+  top: 12px;
+  right: 12px;
+  border-top: 2px solid var(--card-color);
+  border-right: 2px solid var(--card-color);
+  border-top-right-radius: 6px;
+}
+
+.card-corner.bottom-left {
+  bottom: 12px;
+  left: 12px;
+  border-bottom: 2px solid var(--card-color);
+  border-left: 2px solid var(--card-color);
+  border-bottom-left-radius: 6px;
+}
+
+.card-corner.bottom-right {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 2px solid var(--card-color);
+  border-right: 2px solid var(--card-color);
+  border-bottom-right-radius: 6px;
+}
+
+.feature-card:hover .card-corner {
+  width: 25px;
+  height: 25px;
+  border-color: var(--card-color);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .feature-card {
+    padding: 35px 20px;
+    min-height: 350px;
+  }
+  
+  .feature-image-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .feature-image {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .feature-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-card {
+    padding: 30px 20px;
+    min-height: 320px;
+  }
+  
+  .feature-title {
+    font-size: 1.3rem;
+  }
+  
+  .feature-description {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-card {
+    padding: 25px 15px;
+    min-height: 300px;
+  }
+  
+  .feature-image-container {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .feature-title {
+    font-size: 1.2rem;
+  }
+  
+  .feature-description {
+    font-size: 0.9rem;
+  }
+}

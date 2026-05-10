@@ -1,0 +1,77 @@
+/* GLOBAL FIXES - App.css */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto; /* Changed from hidden */
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make sure all sections take full width */
+section, .hero-banner, .footer {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Loading screen styles remain the same */
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: rgb(239, 233, 233);
+}
+
+.loading-screen .loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: #FF6B35;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* ====== FIX FOR FOUNDER PROFILE SECTION TITLES ====== */
+/* Override all other rules for section titles */
+.founder-profile .section-title,
+.profile-content .section-title,
+.left-column .section-title,
+.profile-section .section-title,
+.profile-section h2.section-title {
+  color: #000000 !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 2px solid #1b58dc !important;
+}
+
+/* Specific override for the entire founder profile container */
+.founder-profile,
+.founder-profile-container,
+.founder-profile * {
+  color: #160202 !important;
+}
+
+/* Override the root color scheme for founder profile */
+.founder-profile {
+  color-scheme: light !important;
+}
+
+/* Force ALL text inside founder profile to be black */
+.founder-profile *:not(.profile-header):not(.profile-header *):not(.badge):not(.apply-role-btn):not(.apply-now-btn):not(.view-applications-btn):not(.submit-btn):not(.add-product-btn):not(.ask-question-btn):not(.edit-btn):not(.connect-btn):not(.answer-btn):not(.delete-question-btn):not(.edit-question-btn):not(.close-btn):not(.cancel-btn):not(.login-btn):not(.login-to-ask-btn):not(.product-link):not(.contact-item a):not(.question-time):not(.answer-time) {
+  color: #160404 !important;
+}

@@ -1,0 +1,32 @@
+/* ===== SIMPLE FIX FOR FULL PAGE ===== */
+.home-page {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-top: 80px; /* Push below fixed header */
+}
+
+/* Make Header full width and fixed */
+.home-page > div:first-child {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  z-index: 1000 !important;
+}
+
+/* Make HeroBanner full width and below header */
+.hero-section {
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: calc(100vh - 80px);
+}
+
+/* Make Footer full width */
+.footer-section {
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+<!--{   Production code 
+   <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startup Vidyapith</title>
+    
+    //HOTFIX: Redirect all API calls to production backend 
+    <script>
+      // Force production API URL
+      console.log('🚀 Applying production API fix...');
+      
+      // Define global API constants
+      window.API_BASE_URL = 'https://startup-vidyapith.onrender.com/api';
+      window.BACKEND_URL = 'https://startup-vidyapith.onrender.com';
+      
+      // Override fetch to fix API calls
+      const originalFetch = window.fetch;
+      window.fetch = function(input, init) {
+        let url = input;
+        
+        if (typeof url === 'string') {
+          // Fix 1: Replace localhost:5000 with production URL
+          if (url.includes('localhost:5000')) {
+            url = url.replace('http://localhost:5000', 'https://startup-vidyapith.onrender.com');
+            console.log('🔄 Fixed localhost URL:', url);
+          }
+          
+          // Fix 2: If on Vercel domain and using relative /api, make absolute
+          if (url.startsWith('/api') && window.location.hostname.includes('vercel.app')) {
+            url = 'https://startup-vidyapith.onrender.com' + url;
+            console.log('🔄 Fixed relative API URL:', url);
+          }
+          
+          // Fix 3: Replace any http:// with https:// for production
+          if (url.startsWith('http://') && !url.includes('localhost')) {
+            url = url.replace('http://', 'https://');
+          }
+        }
+        
+        return originalFetch.call(this, url, init);
+      };
+      
+      // Override XMLHttpRequest too
+      const originalXHROpen = XMLHttpRequest.prototype.open;
+      XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
+        if (typeof url === 'string') {
+          // Fix localhost:5000 in XHR requests
+          if (url.includes('localhost:5000')) {
+            url = url.replace('http://localhost:5000', 'https://startup-vidyapith.onrender.com');
+          }
+        }
+        return originalXHROpen.call(this, method, url, async, user, password);
+      };
+      
+      console.log('✅ Production API fix applied');
+      console.log('📡 API_BASE_URL set to:', window.API_BASE_URL);
+      console.log('🌐 Current hostname:', window.location.hostname);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+ -->
+
+
+
+ <!-- ADDED THE .env.production to Frontend folder where all VITE_APP_NAME etc will be replace by its code
+ # ========================================
+# PRODUCTION ENVIRONMENT CONFIGURATION
+# ========================================
+# This file is committed to Git and used by Vercel for production builds
+# DO NOT put secrets here - use Vercel Environment Variables for secrets
+# ========================================
+
+# ========== APPLICATION CONFIG ==========
+VITE_APP_NAME=Startup Vidyapith
+VITE_APP_VERSION=1.0.0
+VITE_NODE_ENV=production
+
+# ========== BACKEND API CONFIG ==========
+VITE_API_BASE_URL=https://startup-vidyapith.onrender.com/api
+VITE_API_URL=https://startup-vidyapith.onrender.com
+VITE_BACKEND_PORT=443  # HTTPS port
+
+# ========== WEBSOCKET CONFIG ==========
+VITE_SOCKET_URL=wss://startup-vidyapith.onrender.com
+
+# ========== EMAIL CONFIG (Public only) ==========
+VITE_SUPPORT_EMAIL=startupvidyapith@gmail.com
+VITE_EMAIL_SERVICE=Gmail
+
+# ========== APP URLS ==========
+VITE_APP_URL=https://startup-vidyapith.vercel.app
+VITE_BACKEND_URL=https://startup-vidyapith.onrender.com
+
+# ========== UI/DISPLAY CONFIG ==========
+VITE_ITEMS_PER_PAGE=10
+VITE_DEFAULT_TIMEOUT=30000
+VITE_UPLOAD_MAX_SIZE=5242880
+
+# ========== DEVELOPMENT FLAGS ==========
+VITE_DEBUG=false
+VITE_LOGGING_LEVEL=info
+VITE_ENABLE_DEV_TOOLS=false 
+-->
+
+<!-- REPLACED THE Constants.jsx code with this 
+ // src/config/constants.js
+
+// Determine if we're in production
+const isProduction = window.location.hostname !== 'localhost' && 
+                     window.location.hostname !== '127.0.0.1';
+
+// Production API URLs
+const PRODUCTION_API_BASE = 'https://startup-vidyapith.onrender.com/api';
+const PRODUCTION_BACKEND = 'https://startup-vidyapith.onrender.com';
+
+// Development API URLs  
+const DEVELOPMENT_API_BASE = 'http://localhost:5000/api';
+const DEVELOPMENT_BACKEND = 'http://localhost:5000';
+
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 
+  (isProduction ? PRODUCTION_API_BASE : DEVELOPMENT_API_BASE);
+
+export const BACKEND_URL = import.meta.env.VITE_API_URL || 
+  (isProduction ? PRODUCTION_BACKEND : DEVELOPMENT_BACKEND);
+
+export const APP_NAME = import.meta.env.VITE_APP_NAME || 'Startup Vidyapith';
+export const ITEMS_PER_PAGE = import.meta.env.VITE_ITEMS_PER_PAGE || 10;
+
+// Log for debugging (remove in production)
+console.log('API Configuration:', {
+  API_BASE_URL,
+  BACKEND_URL,
+  isProduction,
+  hostname: window.location.hostname,
+  env: import.meta.env
+});
+
+-->
+
+
+
+
