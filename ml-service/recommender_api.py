@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from sentence_transformers import SentenceTransformer
 import joblib
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
@@ -25,8 +24,6 @@ app.add_middleware(
 try:
     print("🔄 Loading SentenceTransformer model...")
     
-    # Load lightweight semantic model directly
-    model = SentenceTransformer('all-MiniLM-L6-v2')
 
     print("🔄 Loading embeddings and startup data...")
 
@@ -56,32 +53,35 @@ class StartupId(BaseModel):
 @app.post("/recommend")
 def recommend(q: Query):
 
-    # Convert query into embedding vector
-    query_vec = model.encode([q.text])
-
-    # Compute cosine similarity
-    sims = cosine_similarity(query_vec, startup_embeddings).flatten()
-
-    # Get top matches
-    top_idx = sims.argsort()[-q.top_k:][::-1]
+    query = q.text.lower()
 
     results = []
 
-    for idx in top_idx:
-        score = float(sims[idx])
+    for startup in startups:
 
-        results.append({
-            "id": startups[idx]['id'],
-            "name": startups[idx]['name'],
-            "description": startups[idx]['description'],
-            "industry": startups[idx]['industry'],
-            "hiring": startups[idx]['hiring'],
-            "looking_for": startups[idx]['looking_for'],
-            "score": round(score, 4)
-        })
+        searchable_text = (
+            startup['name'] + " " +
+            startup['description'] + " " +
+            startup['industry']
+        ).lower()
+
+        score = searchable_text.count(query)
+
+        if score > 0:
+            results.append({
+                "id": startup['id'],
+                "name": startup['name'],
+                "description": startup['description'],
+                "industry": startup['industry'],
+                "hiring": startup['hiring'],
+                "looking_for": startup['looking_for'],
+                "score": score
+            })
+
+    results = sorted(results, key=lambda x: x["score"], reverse=True)
 
     return {
-        "recommendations": results
+        "recommendations": results[:q.top_k]
     }
 
 
