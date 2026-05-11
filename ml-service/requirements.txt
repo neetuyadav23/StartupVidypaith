@@ -1,6 +1,7 @@
 fastapi
 uvicorn
-numpy
-pandas
+sentence-transformers
 scikit-learn
-pickle-mixin
+joblib
+numpy
+torch
