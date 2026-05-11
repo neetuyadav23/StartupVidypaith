@@ -1,7 +1,5 @@
 # StartupVidyapith
 
-Live Demo : startup-vidyapith-silk.vercel.app
-
 A platform connecting students, founders, and mentors.
 
 ## Quick Start
